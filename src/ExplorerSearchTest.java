@@ -17,4 +17,15 @@ public class ExplorerSearchTest {
 
     // Add more tests here!
     // Come up with varied cases
+
+    @Test
+    public void testExplorerLocation_centerOfGrid() {
+        int[][] island = {
+            {1, 2, 1},
+            {1, 0, 2},
+            {3, 3, 1}
+        };
+        int[] expected = {1, 1};
+        assertArrayEquals(expected, ExplorerSearch.explorerLocation(island));
+    }
 }
