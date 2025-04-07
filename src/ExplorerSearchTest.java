@@ -37,6 +37,31 @@ public class ExplorerSearchTest {
     }
 
     @Test
+    public void testReachableArea_OnePathRightSide() {
+        int[][] island = {
+            {1,1,1,3,2,1},
+            {3,2,3,1,3,1},
+            {1,1,1,1,3,1},
+            {3,1,2,1,3,1},
+            {1,1,1,2,3,0},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    public void testReachableArea_OpenIsland() {
+        int[][] island = {
+            {1,1,1,1,1,1},
+            {1,1,1,1,1,1},
+            {1,1,1,1,1,1},
+            {1,1,1,1,1,1},
+            {1,1,1,1,1,0},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(30, actual);
+    }
+    @Test
     public void testExplorerLocation_centerOfGrid() {
         int[][] island = {
             {1, 2, 1},
