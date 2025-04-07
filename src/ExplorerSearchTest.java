@@ -28,4 +28,17 @@ public class ExplorerSearchTest {
         int[] expected = {1, 1};
         assertArrayEquals(expected, ExplorerSearch.explorerLocation(island));
     }
+
+    @Test
+    public void testExplorerNotFound() {
+        int[][] island = {
+            {1, 2, 1},
+            {1, 1, 2},
+            {3, 3, 1}
+        };
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            ExplorerSearch.explorerLocation(island);
+        });
+        assertEquals("Explorer not found", exception.getMessage());
+    }
 }
