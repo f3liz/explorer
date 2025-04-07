@@ -24,6 +24,19 @@ public class ExplorerSearchTest {
     // Come up with varied cases
 
     @Test
+    public void testReachableArea_TrappedInCorner() {
+        int[][] island = {
+            {1,1,1,3,1,1},
+            {3,2,3,1,3,1},
+            {1,1,1,1,3,3},
+            {3,1,2,1,3,2},
+            {1,1,1,2,3,0},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(1, actual);
+    }
+
+    @Test
     public void testExplorerLocation_centerOfGrid() {
         int[][] island = {
             {1, 2, 1},
