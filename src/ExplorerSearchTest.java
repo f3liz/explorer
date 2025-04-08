@@ -104,6 +104,21 @@ public class ExplorerSearchTest {
     }
 
     @Test
+    public void testPossibleMoves_UpDirectionOpen() {
+        int[][] enclosure = {
+            {1, 1, 1},
+            {3, 0, 3},
+            {1, 3, 1}
+        };
+        int[] location = {1, 1};
+        List<int[]> moves = ExplorerSearch.possibleMoves(enclosure, location);
+        Set<String> moveSet = toSet(moves);
+
+        assertEquals(1, moves.size());
+        assertTrue(moveSet.contains("0,1")); // up
+    }
+
+    @Test
     public void testPossibleMoves_NoDirectionsOpen() {
         int[][] enclosure = {
             {2, 3, 2},
